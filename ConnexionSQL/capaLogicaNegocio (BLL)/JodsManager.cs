@@ -2,14 +2,14 @@
 
 public class JobsManager
 {
-    private AccesoADatos accesoADatos;
+    private AccesoADatosJobs accesoADatos;
 
     public JobsManager(SqlConnection connection)
     {
-        accesoADatos = new AccesoADatos(connection);
+        accesoADatos = new AccesoADatosJobs(connection);
     }
 
-    public void AddJob(AccesoADatos.Jobs job)
+    public void AddJob(AccesoADatosJobs.Jobs job)
     {
         accesoADatos.InsertJob(job);
     }

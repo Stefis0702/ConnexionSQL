@@ -46,8 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccesoDatos %28DAL%29\AccesoADatosEmployees.cs" />
+    <Compile Include="AccesoDatos %28DAL%29\AccesoDatosDepartment.cs" />
+    <Compile Include="AccesoDatos %28DAL%29\AccesoDatosManager.cs" />
+    <Compile Include="capaLogicaNegocio %28BLL%29\EmployeesManager.cs" />
     <Compile Include="capaLogicaNegocio %28BLL%29\JodsManager.cs" />
-    <Compile Include="capaAccesoDatos %28DAL%29\AccesoADatos.cs" />
+    <Compile Include="AccesoDatos %28DAL%29\AccesoADatosJobs.cs" />
+    <Compile Include="capaPresentacion%28UI%29\EmployeesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="capaPresentacion%28UI%29\EmployeesForm.Designer.cs">
+      <DependentUpon>EmployeesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="capaPresentacion%28UI%29\FormularioPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +73,9 @@
     <Compile Include="ConfiguracionBD.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="capaPresentacion%28UI%29\EmployeesForm.resx">
+      <DependentUpon>EmployeesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="capaPresentacion%28UI%29\FormularioPrincipal.resx">
       <DependentUpon>FormularioPrincipal.cs</DependentUpon>
     </EmbeddedResource>

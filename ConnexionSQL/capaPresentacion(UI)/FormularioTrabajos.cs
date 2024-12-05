@@ -13,7 +13,7 @@ namespace ConnexionSQL.capaPresentacion_UI_
 {
     public partial class FormularioTrabajos : Form
     {
-        private AccesoADatos jobsDataAccess;
+        private AccesoADatosJobs jobsDataAccess;
         private JobsManager jobsManager;
         private SqlConnection connection;
         
@@ -23,7 +23,7 @@ namespace ConnexionSQL.capaPresentacion_UI_
             InitializeComponent();
             connection = new SqlConnection(ConfiguracionBD.connectionString);
             jobsManager = new JobsManager(connection);
-            jobsDataAccess = new AccesoADatos(connection);
+            jobsDataAccess = new AccesoADatosJobs(connection);
         }
       
 
@@ -49,7 +49,7 @@ namespace ConnexionSQL.capaPresentacion_UI_
                 }
                 
 
-                AccesoADatos.Jobs newJob = new AccesoADatos.Jobs(jobTitle, jobMinSalary, jobMaxSalary);
+                AccesoADatosJobs.Jobs newJob = new AccesoADatosJobs.Jobs(jobTitle, jobMinSalary, jobMaxSalary);
               
                 
                 jobsManager.AddJob(newJob);
@@ -95,7 +95,7 @@ namespace ConnexionSQL.capaPresentacion_UI_
                 if (lbxJobs.SelectedItem != null)
                 {
                     
-                    AccesoADatos.Jobs selectedJob = (AccesoADatos.Jobs)lbxJobs.SelectedItem;
+                    AccesoADatosJobs.Jobs selectedJob = (AccesoADatosJobs.Jobs)lbxJobs.SelectedItem;
 
                    
                     selectedJob.JobTitle = txtJobTitle.Text;
@@ -105,7 +105,7 @@ namespace ConnexionSQL.capaPresentacion_UI_
                     
                     jobsDataAccess.UpdateJob(selectedJob);
                     MessageBox.Show("Trabajo actualizado correctamente.");
-                    List<AccesoADatos.Jobs> jobsList = jobsDataAccess.SelectJobs();
+                    List<AccesoADatosJobs.Jobs> jobsList = jobsDataAccess.SelectJobs();
                     lbxJobs.Items.Clear();
                     foreach (var job in jobsList)
                     {
@@ -130,12 +130,12 @@ namespace ConnexionSQL.capaPresentacion_UI_
                 if (lbxJobs.SelectedItem != null)
                 {
                     
-                    AccesoADatos.Jobs selectedJob = (AccesoADatos.Jobs)lbxJobs.SelectedItem;
+                    AccesoADatosJobs.Jobs selectedJob = (AccesoADatosJobs.Jobs)lbxJobs.SelectedItem;
                     int jobId = selectedJob.JobId.Value;
 
                     jobsManager.DeleteJob(jobId);
 
-                    List<AccesoADatos.Jobs> jobsList = jobsDataAccess.SelectJobs();
+                    List<AccesoADatosJobs.Jobs> jobsList = jobsDataAccess.SelectJobs();
                     lbxJobs.Items.Clear();
                     foreach (var job in jobsList)
                     {

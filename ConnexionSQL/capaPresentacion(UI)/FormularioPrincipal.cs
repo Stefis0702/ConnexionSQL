@@ -84,6 +84,12 @@ namespace ConnexionSQL
             
             formularioTrabajos.ShowDialog();
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            EmployeesForm employeesForm = new EmployeesForm();
+            employeesForm.ShowDialog();
+        }
     }
     
 

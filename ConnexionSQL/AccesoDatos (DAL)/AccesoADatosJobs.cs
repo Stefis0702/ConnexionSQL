@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-public class AccesoADatos
+public class AccesoADatosJobs
 {
     private SqlConnection connection;
 
@@ -27,7 +27,7 @@ public class AccesoADatos
         }
     }
 
-    public AccesoADatos(SqlConnection connection)
+    public AccesoADatosJobs(SqlConnection connection)
     {
         this.connection = connection;
     }
